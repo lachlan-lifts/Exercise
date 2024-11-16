@@ -5,8 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
 </head>
+    
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>This is the starting point!</p>
+<div id="header"></div>
+<script>
+    async function loadComponent(id, file) {
+        const response = await fetch(file);
+        const html = await response.text();
+        document.getElementById(id).innerHTML = html;
+    }
+    loadComponent("header", "components/header.html");
+</script>
 </body>
 </html>
